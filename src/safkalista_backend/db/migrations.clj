@@ -1,21 +1,20 @@
 (ns safkalista-backend.db.migrations
-  (:require [safkalista-backend.conf :refer [db-config]])
+  (:require [safkalista-backend.conf :refer [config]])
   (:import org.flywaydb.core.Flyway))
-
 
 (def flyway
   (-> (Flyway/configure)
       (.dataSource
-        (format
-          "jdbc:%s://%s:%d/%s?user=%s&password=%s"
-          (:db-type db-config)
-          (:db-server db-config)
-          (:db-port db-config)
-          (:db-name db-config)
-          (:db-username db-config)
-          (:db-password db-config))
-        nil
-        nil)
+       (format
+        "jdbc:%s://%s:%d/%s?user=%s&password=%s"
+        (:db-type (:db-conf config))
+        (:db-server (:db-conf config))
+        (:db-port (:db-conf config))
+        (:db-name (:db-conf config))
+        (:db-username (:db-conf config))
+        (:db-password (:db-conf config)))
+       nil
+       nil)
       (.load)))
 
 (defn migrate! []

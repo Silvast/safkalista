@@ -3,4 +3,10 @@
     :subprotocol "postgresql"
     :subname "//localhost:5434/maaliskuu"
     :user "maaliskuu_user"
-    :password "possu"}}
+    :password "possu"
+    :db-type "postgresql"
+    :db-server "localhost"
+    :db-name "maaliskuu"
+    :db-port 5434
+    :db-username "maaliskuu_user"
+    :db-password "possu"}}

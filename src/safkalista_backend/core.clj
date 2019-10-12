@@ -7,13 +7,12 @@
 
 (def app
   (api
-    {:swagger
-     {:ui "/"
-      :spec "/swagger.json"
-      :data {:info {:title "Safkaa"
-                    :description "Compojure Api example"}
-             :tags [{:name "api", :description "some apis"}]}}}
-    (context "/api" []
-             :tags ["api"]
-             receipt-routes
-             )))
+   {:swagger
+    {:ui "/"
+     :spec "/swagger.json"
+     :data {:info {:title "Safkaa"
+                   :description "Compojure Api example"}
+            :tags [{:name "api", :description "some apis"}]}}}
+   (context "/api" []
+     :tags ["api"]
+     receipt-routes)))

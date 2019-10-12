@@ -9,8 +9,9 @@
 
 (deftest get-pyynto-test
   (testing "Testing getting pyynto with parameters pyynto"
-    (let [response (app (mock/request :get "/api/receipts?ruoka=Soijamakaronilaatikko"))
-          body (:result (parse-body (:body response)))]
+    (let [response
+          (app (mock/request :get "/api/receipts?ruoka=Soijamakaronilaatikko"))
+          body (:result (parse◊-body (:body response)))]
       (is (= (:status response) 200))
       (is (= (:name body) "Soijamakaronilaatikko")))))
 
