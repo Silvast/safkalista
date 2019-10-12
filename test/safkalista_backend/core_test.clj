@@ -12,4 +12,12 @@
     (let [response (app (mock/request :get "/api/receipts?ruoka=Soijamakaronilaatikko"))
           body (:result (parse-body (:body response)))]
       (is (= (:status response) 200))
-      (is (= body "this is your ruoka: Soijamakaronilaatikko")))))
+      (is (= (:name body) "Soijamakaronilaatikko")))))
+
+(deftest food-not-found-test
+  (testing "Testing getting error message for food that is not found"
+    (let [response (app (mock/request :get "/api/receipts?ruoka=Lihasose"))
+          body (:error (parse-body (:body response)))]
+      (println body)
+      (is (= (:status response) 404))
+      (is (= body "Valitettavasti ruokaa ei löydy tietokannastamme!")))))

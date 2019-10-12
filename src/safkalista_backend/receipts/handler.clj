@@ -9,8 +9,11 @@
   (def receipt-routes
        (context "/receipts" []
                       (GET "/" []
-                                 :return {:result s/Str}
+                                 :return {:result s/Any}
                                  :query-params [ruoka :- s/Str]
                                  :summary "Returns receipt"
-                                 (let [ruoka (:name (first (receipts/get-receipts ruoka)))]
-                                   (ok {:result (str "this is your ruoka: " ruoka)})))))
+                                 (let [ruoka (first (receipts/get-receipts ruoka))]
+                                   (if (some? ruoka)
+                                     (ok {:result ruoka})
+                                     (not-found
+                                       {:error "Valitettavasti ruokaa ei löydy tietokannastamme!"}))))))
