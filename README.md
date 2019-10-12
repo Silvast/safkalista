@@ -10,7 +10,9 @@ Clone this repo, set your database configuration in configuration/default.edn an
     $ lein ring server
     
 ```
+Swagger site should open in http://localhost:3000/index.html
 Alternatively, you can also do:
+
 ```
     $ lein uberjar
     $ java -jar safkalista-backend-0.1.0-standalone.jar
