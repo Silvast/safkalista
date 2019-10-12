@@ -1,32 +1,13 @@
 # safkalista-backend
 
-FIXME: description
+This is the backend for "Safkalista" - an app that allows you to create your own weeks menu. 
+
 
 ## Installation
+Clone this repo, set your database configuration in configuration/default.edn
 
-Download from http://example.com/FIXME.
-
-## Usage
-
-FIXME: explanation
-
-    $ java -jar safkalista-backend-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+    $ lein uberjar
+    $ java -jar safkalista-backend-0.1.0-standalone.jar
 
 ## License
 
