@@ -1,0 +1,5 @@
+FROM clojure
+COPY server.jar /usr/src/safkalista/
+WORKDIR /usr/src/safkalista/
+EXPOSE 3000
+CMD ["java", "-jar", "server.jar"]
