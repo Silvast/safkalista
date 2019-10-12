@@ -17,6 +17,16 @@ Alternatively, you can also do:
     $ lein uberjar
     $ java -jar safkalista-backend-0.1.0-standalone.jar
 ```
+
+## Tests 
+
+```
+    $ lein test
+    
+```
+
+To run tests do (in the project root)
+
 ## License
 
 
