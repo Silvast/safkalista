@@ -3,7 +3,8 @@
             [compojure.api.core :refer [route-middleware]]
             [ring.util.http-response :refer :all]
             [schema.core :as s]
-            [safkalista-backend.receipts.receipts :as receipts]))
+            [safkalista-backend.receipts.receipts :as receipts]
+            [ring.middleware.cors :refer [wrap-cors]]))
 
 (def receipt-routes
   (context "/receipts" []
@@ -11,7 +12,7 @@
       :return {:result s/Any}
       :query-params [ruoka :- s/Str]
       :summary "Returns receipt"
-      (let [ruoka (first (receipts/get-receipts ruoka))]
+      (let [ruoka (receipts/get-receipts ruoka)]
         (if (some? ruoka)
           (ok {:result ruoka})
           (not-found
