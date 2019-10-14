@@ -13,7 +13,16 @@
       :query-params [ruoka :- s/Str]
       :summary "Returns receipt"
       (let [ruoka (receipts/get-receipts ruoka)]
-        (if (some? ruoka)
+        (if (some? (:name ruoka))
           (ok {:result ruoka})
           (not-found
-           {:error "Valitettavasti ruokaa ei löydy tietokannastamme!"}))))))
+           {:error "Valitettavasti ruokaa ei löydy tietokannastamme!"}))))
+       (GET "/random" []
+            :return {:result s/Any}
+            :query-params [number :- s/Int]
+            :summary "Returns random receipts"
+            (let [response (receipts/get-random-receipts number)]
+              (if (some? response)
+                (ok {:result response})
+                (not-found
+                  {:error "Joku meni nyt kyllä mönkään!"}))))))

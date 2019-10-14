@@ -15,8 +15,6 @@
     (merge (first receipt)
            {:ingredients ingredients})))
 
-(get-receipts "Nakkikastike")
-
-(defn get-receipts-old [receipt-name]
-  (queries/get-receipts-by-name (:db-conf config) {:receipt_name receipt-name}))
-
+(defn get-random-receipts [number]
+  (queries/get-random-receipts (:db-conf config) {:number_receipts
+                                                   number}))
