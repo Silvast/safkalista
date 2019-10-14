@@ -2,6 +2,8 @@
 
 This is the backend for "Safkalista" - an app that allows you to create your own weeks menu. 
 
+## Database
+![alt text](doc/images/db.png "First draft of database structure")
 
 ## Installation and running
 Clone this repo, set your database configuration in configuration/default.edn and run the server with
