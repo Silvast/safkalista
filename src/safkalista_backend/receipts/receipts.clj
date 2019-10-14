@@ -6,7 +6,7 @@
   (let [ingredients
         (queries/get-ingredients-by-receipt-name (:db-conf config)
                                                  {:receipt_name receipt-name})]
-    (map #(:name %) ingredients)))
+    (map :name ingredients)))
 
 (defn get-receipts [receipt-name]
   (let [receipt (queries/get-receipts-by-name (:db-conf config) {:receipt_name
