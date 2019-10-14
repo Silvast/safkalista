@@ -41,7 +41,13 @@ Clone this repo, set your database configuration in configuration/default.edn an
     
 ```
 Swagger site should open in http://localhost:3000/index.html
-Alternatively, you can also do:
+Alternatively, you can also use docker-compose 
+
+```
+    $ docker-compose up 
+    
+```
+Or if you just need backend to develop frontend, you can also do:
 
 ```
     $ lein uberjar

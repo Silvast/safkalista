@@ -15,3 +15,8 @@ SELECT ingredients.name
   JOIN ingredients
     ON receipts_ingredients.ingredient_id = ingredients.id
  WHERE receipts.name = :receipt_name
+
+-- :name get-random-receipts :? :number_receipts
+-- :command :query
+-- :doc Get random receipts
+SELECT * FROM receipts TABLESAMPLE SYSTEM (100) LIMIT :number_receipts

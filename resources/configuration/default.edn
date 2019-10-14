@@ -1,12 +1,13 @@
 {:db-conf
-   {:classname "org.postgresql.Driver"
+   {:app-port 3000
+    :classname "org.postgresql.Driver"
     :subprotocol "postgresql"
-    :subname "//localhost:5434/maaliskuu"
-    :user "maaliskuu_user"
+    :subname "//localhost:5430/safkalista"
+    :user "safkalista_user"
     :password "possu"
     :db-type "postgresql"
     :db-server "localhost"
-    :db-name "maaliskuu"
-    :db-port 5434
-    :db-username "maaliskuu_user"
+    :db-name "safkalista"
+    :db-port 5430
+    :db-username "safkalista_user"
     :db-password "possu"}}
