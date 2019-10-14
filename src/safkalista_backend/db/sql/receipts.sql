@@ -18,5 +18,5 @@ SELECT ingredients.name
 
 -- :name get-random-receipts :? :number_receipts
 -- :command :query
--- :doc Get random receipts
+-- :doc Get random receipts, have to fix this though, not very efficient
 SELECT * FROM receipts ORDER BY RANDOM() LIMIT :number_receipts
