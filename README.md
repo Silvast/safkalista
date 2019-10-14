@@ -3,6 +3,34 @@
 This is the backend for "Safkalista" - an app that allows you to create your own weeks menu. 
 
 ## Database
+The database uses flyway migrations. Add your database configuration to
+ resources/default.edn such that both flyway and queries can access the
+  db. 
+ 
+ You can add your own database or use a test database with docker-compose
+ , see /scripts/docker:
+ 
+  ```
+      $ docker-compose up db
+      
+  ```
+  
+ There is test data in afterMigration.sql
+ to get you started. 
+ 
+ To clean the database
+ ```
+     $ lein dbclean
+     
+ ```
+
+ To run migrations
+ ```
+     $ lein dbmigrate
+     
+ ```
+#### Structure of the database
+ 
 ![alt text](doc/images/db.png "First draft of database structure")
 
 ## Installation and running
