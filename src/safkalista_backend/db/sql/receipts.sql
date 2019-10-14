@@ -19,4 +19,4 @@ SELECT ingredients.name
 -- :name get-random-receipts :? :number_receipts
 -- :command :query
 -- :doc Get random receipts
-SELECT * FROM receipts TABLESAMPLE SYSTEM (100) LIMIT :number_receipts
+SELECT * FROM receipts ORDER BY RANDOM() LIMIT :number_receipts
