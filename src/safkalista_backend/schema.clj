@@ -22,6 +22,8 @@
 
 (s/defschema WishesResponse
   "Wishes response  data"
-  [{:id s/Int
-    :name s/Str
-    :instructions s/Str}])
+{:food-list 
+ [{:id s/Int
+   :name s/Str
+   :instructions s/Str}]
+ :ingredients-list [s/Str]})
