@@ -3,8 +3,8 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.8.0"]
-                 [ring "1.7.1"]
+  :dependencies [[org.clojure/clojure "1.10.0"]
+                 [ring "1.9.0"]
                  [ring/ring-mock "0.3.2"]
                  [ring/ring-jetty-adapter "1.7.1"]
                  [cheshire "5.8.1"]
@@ -16,7 +16,8 @@
                  [environ "1.1.0"]
                  [ring-cors "0.1.13"]
                  [org.clojure/tools.logging "0.4.1"]
-                 [jumblerg/ring-cors "2.0.0"]]
+                 [jumblerg/ring-cors "2.0.0"]
+                 [try-let "1.3.1"]]
   :plugins [[lein-cljfmt "0.6.0" :exclusions [org.clojure/tools.cli]]
             [lein-kibit "0.1.6"]
             [lein-bikeshed "0.5.2"]
@@ -35,7 +36,7 @@
             "dbclean" ["run" "-m" "safkalista-backend.db.migrations/clean!"]}
   :target-path "target/%s"
   :ring {:handler safkalista-backend.core/app}
-  :main safkalista-backend.main
-  :aot [safkalista-backend.main]
+  :main safkalista-backend.core
+  :aot [safkalista-backend.core]
   :uberjar-name "server.jar"
-  :profiles {:dev {:plugins [[lein-ring "0.10.0"]]}})
+  :profiles {:dev {:plugins [[lein-ring "0.12.5"]]}})
