@@ -1,6 +1,7 @@
 (ns safkalista-backend.receipts.receipts
   (:require [safkalista-backend.db.queries :as queries]
             [safkalista-backend.conf :refer [config]]
+            [clojure.tools.logging :as log]
             [try-let :refer [try-let]]))
 
 (defn get-ingredients [receipt-name]
@@ -30,14 +31,15 @@
    (vec (queries/get-random-receipts-by-type (:db-conf config) {:number_receipts number :food_type food-type})))
 
 (defn get-food-list [wishes]
-  (let [receipts (flatten (map #(get-random-receipts-by-type (:food-type %) (:number %)) wishes))
-        receipt-ids (map #(:id %) receipts)
-        ingredients-list (get-ingredients-by-receipt-ids receipt-ids)]
-  {:food-list receipts :ingredients-list ingredients-list}))
+  (let [receipts (flatten (map #(get-random-receipts-by-type (str (:food-type %))(:number %)) wishes))
+        receipt-ids (map #(:id %) receipts)]
+    (if (> (count receipt-ids) 0)
+      {:food-list receipts :ingredients-list (get-ingredients-by-receipt-ids receipt-ids)}
+      (log/info "no receipts found"))))
 
-(def wishes [{:food-type "keitto" :number 1} {:food-type "uuniruoka" :number 1}])
 
 (defn add-new-receipt [receipt-data]
+  (log/info receipt-data)
   (try-let [receipt
             (queries/add-new-receipt (:db-conf config)
                                      {:name (:name receipt-data)
