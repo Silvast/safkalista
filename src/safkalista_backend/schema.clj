@@ -17,8 +17,8 @@
 
 (s/defschema Wishes
   "Receipt wishes data"
-  {:number s/Int
-    :food-type s/Str})
+[{:number s/Int
+  :food-type s/Str}])
 
 (s/defschema WishesResponse
   "Wishes response  data"

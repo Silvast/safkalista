@@ -9,4 +9,10 @@
   (with-open [reader (io/reader file)]
     (edn/read (java.io.PushbackReader. reader))))
 
-(def config (load-config config-file))
+(defn get-config []
+ (let [conf (load-config config-file)]
+   (if (some? (System/getenv "DB_URL"))
+     (assoc-in conf [:database-url] (System/getenv "DB_URL"))
+     conf)))
+
+(def config (get-config))

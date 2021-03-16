@@ -2,5 +2,5 @@ FROM clojure
 COPY scripts/docker/server.jar /usr/src/safkalista/
 ADD resources /usr/src/safkalista/resources
 WORKDIR /usr/src/safkalista/
-EXPOSE 3000
+EXPOSE 3001
 CMD ["java", "-jar", "server.jar"]

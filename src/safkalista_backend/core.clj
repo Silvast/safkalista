@@ -18,7 +18,7 @@
         (context "/api" []
                  :tags ["api"]
                  receipt-routes))
-      (wrap-cors :access-control-allow-origin #"http://localhost:3449"
+      (wrap-cors :access-control-allow-origin #"http://localhost:8280"
                  :access-control-allow-headers ["Origin" "X-Requested-With"
                                                 "Content-Type" "Accept"]
                  :access-control-allow-methods [:get :put :post :delete :options])))

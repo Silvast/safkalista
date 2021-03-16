@@ -1,13 +1,4 @@
-{:db-conf
-   {:app-port 3000
-    :classname "org.postgresql.Driver"
-    :subprotocol "postgresql"
-    :subname "//localhost:5430/safkalista"
-    :user "safkalista_user"
-    :password "possu"
-    :db-type "postgresql"
-    :db-server "localhost"
-    :db-name "safkalista"
-    :db-port 5430
-    :db-username "safkalista_user"
-    :db-password "possu"}}
+{:database-url 
+ "jdbc:postgresql://localhost:5430/safkalista?user=safkalista_user&password=possu"
+;;  "jdbc:postgresql://safkalista.cjmqznnkks4d.eu-west-1.rds.amazonaws.com:5432/safkalista?user=safkapossu_user&password=paska20perse23" 
+ }
