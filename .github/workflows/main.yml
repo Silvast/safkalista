@@ -22,7 +22,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@latest
+    - uses: actions/checkout@v2
     - uses: DeLaGuardo/setup-graalvm@2.0
       with:
         graalvm-version: '19.3.1.java11'
