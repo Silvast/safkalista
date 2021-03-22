@@ -1,5 +1,5 @@
 FROM clojure
-COPY scripts/docker/server.jar /usr/src/safkalista/
+COPY target/uberjar/server.jar /usr/src/safkalista/
 ADD resources /usr/src/safkalista/resources
 WORKDIR /usr/src/safkalista/
 EXPOSE 3001
