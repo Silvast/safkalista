@@ -42,3 +42,4 @@ jobs:
         context: .
         file: ./scripts/docker/Dockerfile-dev
         push: true
+        tag_with_ref: true
