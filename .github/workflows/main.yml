@@ -42,4 +42,4 @@ jobs:
         context: .
         file: ./scripts/docker/Dockerfile-dev
         push: true
-        tags: ghcr.io/Silvast/safkalista:latest
+        tags: ghcr.io/silvast/safkalista:latest
