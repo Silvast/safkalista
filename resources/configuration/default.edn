@@ -1,3 +1,1 @@
-{:database-url "jdbc:postgresql://localhost:5432/safkalista?user=safkalista_user&password=abc1232"
-
- }
+{:database-url "jdbc:postgresql://localhost:5432/safkalista?user=safkalista_user&password=abc1232"}
