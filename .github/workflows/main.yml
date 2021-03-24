@@ -22,7 +22,7 @@ jobs:
     - name: Install dependencies
       run: lein deps
     - name: Build jar
-      run: lein ring uberjar
+      run: lein uberjar
       env:
         DB_URL: ${{ secrets.DB_URL }}
     - name: Set up QEMU

@@ -36,8 +36,9 @@
             "dbmigrate" ["run" "-m" "safkalista-backend.db.migrations/migrate!"]
             "dbclean" ["run" "-m" "safkalista-backend.db.migrations/clean!"]}
   :target-path "target/%s"
-  :ring {:handler safkalista-backend.core/app :port 3001}
+  :ring {:handler safkalista-backend.core/app}
   :uberjar-name "server.jar"
-  :uberjar {:ring {:handler safkalista.core/app}}
+  :uberjar {:ring {:handler safkalista.core/app :main safkalista-backend.core}}
+  :main safkalista-backend.core
   :aot :all
-  :profiles {:dev {:plugins [[lein-ring "0.12.5"]]}})
+  :profiles {:uberjar {:aot :all} :dev {:plugins [[lein-ring "0.12.5"]]}})

@@ -7,6 +7,7 @@
             [safkalista-backend.db.migrations :as m]
             [schema.core :as s]
             [jumblerg.middleware.cors :refer [wrap-cors]]
+            [clojure.tools.logging :as log]
             [safkalista-backend.conf :refer [config]])
   (:gen-class))
 
@@ -27,7 +28,10 @@
                                              "Content-Type" "Accept"]
               :access-control-allow-methods [:get :put :post :delete :options])))
 
-(defn -main [& [port]]
-  (let [port (Integer. (or port 3001))]
-    (m/migrate!)
-    (jetty/run-jetty (site #'app) {:port port :join? false})))
+(defn -main [& args]
+  (let [port (Integer. (or (first args) 3002))
+        run-migrations (or (second args) false)]
+    (if run-migrations
+     (m/migrate!)
+     (log/info "No migrations will be run"))
+    (jetty/run-jetty (site #'app) {:port port})))
