@@ -29,7 +29,7 @@
               :access-control-allow-methods [:get :put :post :delete :options])))
 
 (defn -main [& args]
-  (let [port (Integer. (or (first args) 3002))
+  (let [port (Integer. (or (first args) 3001))
         run-migrations (or (second args) (System/getenv "RUN_MIGRATIONS") false)]
     (if run-migrations
      (m/migrate!)
