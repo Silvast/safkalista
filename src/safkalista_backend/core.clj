@@ -30,7 +30,7 @@
 
 (defn -main [& args]
   (let [port (Integer. (or (first args) 3002))
-        run-migrations (or (second args) false)]
+        run-migrations (or (second args) (System/getenv "RUN_MIGRATIONS") false)]
     (if run-migrations
      (m/migrate!)
      (log/info "No migrations will be run"))
