@@ -1,4 +1,3 @@
-{:database-url 
- "jdbc:postgresql://localhost:5430/safkalista?user=safkalista_user&password=possu"
-;;  "jdbc:postgresql://safkalista.cjmqznnkks4d.eu-west-1.rds.amazonaws.com:5432/safkalista?user=safkapossu_user&password=paska20perse23" 
+{:database-url "jdbc:postgresql://localhost:5432/safkalista?user=safkalista_user&password=abc1232"
+
  }
