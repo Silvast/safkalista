@@ -22,9 +22,7 @@ jobs:
     - name: Install dependencies
       run: lein deps
     - name: Build jar
-      run: lein uberjar
-      env:
-        DB_URL: ${{ secrets.DB_URL }}
+      run: DB_URL=${{ secrets.DB_URL }} lein uberjar
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
     - name: Set up Docker Buildx
