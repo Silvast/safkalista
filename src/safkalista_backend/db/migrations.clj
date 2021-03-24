@@ -2,25 +2,16 @@
   (:require [safkalista-backend.conf :refer [config]])
   (:import org.flywaydb.core.Flyway))
 
-;; (def flyway
-;;   (-> (Flyway/configure)
-;;       (.dataSource
-;;        (format
-;;         "jdbc:%s://%s:%d/%s?user=%s&password=%s"
-;;         (:db-type (:db-conf config))
-;;         (:db-server (:db-conf config))
-;;         (:db-port (:db-conf config))
-;;         (:db-name (:db-conf config))
-;;         (:db-username (:db-conf config))
-;;         (:db-password (:db-conf config)))
-;;        nil
-;;        nil)
-;;       (.load)))
+
+(def db-url 
+  (if (some? (not-empty (:database-url config)))
+    (:database-url config)
+    "jdbc:postgresql://localhost:5432/safkalista?user=safkalista_user&password=abc1232"))
 
 (def flyway
   (-> (Flyway/configure)
       (.dataSource
-      (:database-url config)
+      db-url
        nil
        nil)
       (.load)))
