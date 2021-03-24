@@ -7,6 +7,7 @@
                  [ring "1.9.0"]
                  [ring/ring-mock "0.3.2"]
                  [ring/ring-jetty-adapter "1.7.1"]
+                 [compojure "1.6.2"]
                  [cheshire "5.8.1"]
                  [metosin/compojure-api "2.0.0-alpha7"]
                  [org.flywaydb/flyway-core "5.2.4"]
@@ -37,4 +38,6 @@
   :target-path "target/%s"
   :ring {:handler safkalista-backend.core/app :port 3001}
   :uberjar-name "server.jar"
+  :uberjar {:ring {:handler safkalista.core/app}}
+  :aot :all
   :profiles {:dev {:plugins [[lein-ring "0.12.5"]]}})
