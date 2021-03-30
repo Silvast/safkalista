@@ -3,6 +3,7 @@
   (:import org.flywaydb.core.Flyway))
 
 
+;;This stupid hack is because github actions does not find default.edn
 (def db-url 
   (if (some? (not-empty (:database-url config)))
     (:database-url config)

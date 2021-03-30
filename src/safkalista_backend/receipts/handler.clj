@@ -28,6 +28,15 @@
           (ok {:result response})
           (not-found
            {:error "Joku meni nyt kyllä mönkään!"}))))
+      (GET "/search" []
+      :return {:result s/Any}
+      :query-params [name :- s/Str]
+      :summary "Returns receipts based on search string"
+      (let [response (receipts/get-receipts-search name)]
+        (if (some? response)
+          (ok {:result response})
+          (not-found
+           {:error "Joku meni nyt kyllä mönkään!"}))))
     (GET "/ingredients" []
       :return {:result s/Any}
       :query-params [id :- [s/Int]]

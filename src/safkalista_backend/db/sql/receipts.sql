@@ -1,9 +1,14 @@
 -- noinspection SqlNoDataSourceInspectionForFile
 
--- :name get-receipts-by-name :? :receipt_name
+-- :name get-receipts-by-name-like :? :name-like
 -- :command :query
 -- :doc Get receipt by its name
-SELECT * FROM receipts WHERE name = :receipt_name
+SELECT * FROM receipts WHERE name ILIKE :name-like
+
+-- :name get-receipts-by-name :? :name
+-- :command :query
+-- :doc Get receipt by its name
+SELECT * FROM receipts WHERE name = :name
 
 -- :name get-ingredients-by-receipt-name :? :receipt_name
 -- :command :query
@@ -36,6 +41,18 @@ SELECT ingredients.name
   JOIN ingredients
     ON receipts_ingredients.ingredient_id = ingredients.id
  WHERE receipts.id  IN (:v*:receipt_ids)
+
+ -- :name get-ingredients-by-receipts-id :? :receipt_id
+-- :command :query
+-- :doc Get receipt ingredients by receipt id
+SELECT ingredients.name
+  FROM receipts
+  JOIN receipts_ingredients
+    ON receipts_ingredients.receipt_id = receipts.id
+  JOIN ingredients
+    ON receipts_ingredients.ingredient_id = ingredients.id
+ WHERE receipts.id = :receipt_id
+
 
 
 -- :name get-receipts-by-receipts-ids :? :receipt_ids

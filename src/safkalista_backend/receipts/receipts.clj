@@ -19,6 +19,14 @@
     (merge (first receipt)
            {:ingredients ingredients})))
 
+(defn get-ingredients-by-receipt-id [id]
+(mapv #(:name %) (queries/get-ingredients-by-receipts-id db {:receipt_id id})))
+
+
+(defn get-receipts-search [receipt-name]
+  (let [receipts-result  (queries/get-receipts-by-name-like db {:name-like (str "%" receipt-name "%")})]
+    (map #(assoc % :ingredients (get-ingredients-by-receipt-id (:id %))) receipts-result)))
+
 (defn get-random-receipts [number]
   (queries/get-random-receipts db {:number_receipts
                                                    number}))
@@ -56,3 +64,11 @@
             receipts-ingredients-result  (queries/insert-receipts-ingredients db {:receipts_ingredients receipts-ingredients})]
         (assoc receipt-data :id receipt-id) 
       (catch Exception e (str "caught exception: " (.getMessage e)))))
+
+(defn update-receipt [id new-data]
+  ;;update receiptdata
+  ;;update receipt-ingredients
+  ;;compare old-data and new
+  ;;if receipt data changes, update or
+  ;;if ingredients-change (if (get-ingredients id) not (new-ingredients))
+  )
