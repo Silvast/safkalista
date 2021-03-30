@@ -40,3 +40,18 @@ jobs:
         file: ./scripts/docker/Dockerfile-dev
         push: true
         tags: ghcr.io/silvast/safkalista:latest
+
+  deploy:
+      runs-on: ubuntu-latest
+      needs: build
+      
+      steps:
+      - name: deploy via ssh
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd /home/ubuntu/scripts
+            ./run_backend.sh
+          host: ${{ secrets.DEPLOY_HOST }}
+          user: ubuntu
+          key: ${{ secrets.DEPLOY_KEY}}
