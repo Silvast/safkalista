@@ -29,7 +29,7 @@ SELECT * FROM (SELECT DISTINCT * FROM receipts) AS r ORDER BY RANDOM() LIMIT :nu
 -- :name get-random-receipts-by-type :? :number_receipts :food_type
 -- :command :query
 -- :doc Get random receipts, have to fix this though, not very efficient
-SELECT id, name, instructions FROM (SELECT DISTINCT * FROM receipts WHERE food_type = :food_type) AS r ORDER BY RANDOM() LIMIT :number_receipts
+SELECT id, name, instructions FROM (SELECT DISTINCT * FROM receipts WHERE LOWER(food_type) = LOWER(:food_type)) AS r ORDER BY RANDOM() LIMIT :number_receipts
 
 -- :name get-ingredients-by-receipts-ids :? :receipt_ids
 -- :command :query
