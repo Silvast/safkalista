@@ -1,6 +1,12 @@
 # safkalista-backend
 
-This is the backend for "Safkalista" - an app that allows you to create your own weeks menu. 
+This is the backend for "Safkalista" - an app that allows you to create your own weeks menu. Front-end code can be found [here](https://github.com/Silvast/safkalista)
+![Screenshot of the app](https://anskufail.wordpress.com/wp-content/uploads/2021/03/screenshot-2021-03-20-at-12.33.14.png)
+![Screenshot of the app](https://anskufail.wordpress.com/wp-content/uploads/2021/03/screenshot-2021-03-20-at-12.30.39.png)
+
+![Screenshot of the app](https://anskufail.wordpress.com/wp-content/uploads/2021/03/screenshot-2021-03-20-at-12.33.03.png)
+
+
 
 ## Database
 The database uses flyway migrations. Add your database configuration to
