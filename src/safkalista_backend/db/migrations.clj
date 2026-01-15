@@ -1,22 +1,18 @@
 (ns safkalista-backend.db.migrations
   (:require [safkalista-backend.conf :refer [config]])
-  (:import org.flywaydb.core.Flyway))
-
+  (:import [org.flywaydb.core Flyway]))
 
 ;;This stupid hack is because github actions does not find default.edn
-(def db-url 
+(def db-url
   (if (some? (not-empty (:database-url config)))
     (:database-url config)
     "jdbc:postgresql://localhost:5432/safkalista?user=safkalista_user&password=abc1232"))
 
 (def flyway
   (-> (Flyway/configure)
-      (.dataSource
-      db-url
-       nil
-       nil)
+      (.dataSource db-url nil nil)
+      (.cleanDisabled false)  ;; Required for Flyway 10+ to allow clean
       (.load)))
-
 
 (defn migrate! []
   (.migrate flyway))

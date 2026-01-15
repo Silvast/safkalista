@@ -6,7 +6,7 @@
             [ring.adapter.jetty :as jetty]
             [safkalista-backend.db.migrations :as m]
             [schema.core :as s]
-            [jumblerg.middleware.cors :refer [wrap-cors]]
+            [ring.middleware.cors :refer [wrap-cors]]
             [clojure.tools.logging :as log]
             [safkalista-backend.conf :refer [config]])
   (:gen-class))
