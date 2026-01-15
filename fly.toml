@@ -1,0 +1,20 @@
+app = 'safkalista'
+primary_region = 'arn'
+
+[build]
+
+[http_service]
+  internal_port = 3001
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[env]
+  RUN_MIGRATIONS = "false"
+
+[[vm]]
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1
