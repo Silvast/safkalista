@@ -1,20 +1,23 @@
-app = 'safkalista'
-primary_region = 'arn'
+# fly.toml app configuration file generated for safkalista-dkbzlg on 2026-01-15T11:55:28Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'safkalista-dkbzlg'
+primary_region = 'ams'
 
 [build]
 
 [http_service]
-  internal_port = 3001
+  internal_port = 8080
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 0
   processes = ['app']
 
-[env]
-  RUN_MIGRATIONS = "false"
-
 [[vm]]
-  memory = '512mb'
+  memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
+  memory_mb = 256
