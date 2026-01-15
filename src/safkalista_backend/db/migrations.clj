@@ -2,11 +2,9 @@
   (:require [safkalista-backend.conf :refer [config]])
   (:import [org.flywaydb.core Flyway]))
 
-;;This stupid hack is because github actions does not find default.edn
 (def db-url
-  (if (some? (not-empty (:database-url config)))
-    (:database-url config)
-    "jdbc:postgresql://localhost:5432/safkalista?user=safkalista_user&password=abc1232"))
+  (or (not-empty (System/getenv "DB_URL"))
+      (:database-url config)))
 
 (def flyway
   (-> (Flyway/configure)
