@@ -1,4 +1,4 @@
-FROM clojure
+FROM clojure:temurin-21-lein
 COPY target/uberjar/server.jar /usr/src/safkalista/
 ADD resources /usr/src/safkalista/resources
 WORKDIR /usr/src/safkalista/
